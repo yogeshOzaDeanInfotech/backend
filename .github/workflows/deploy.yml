@@ -27,7 +27,7 @@ jobs:
                       git pull origin main
 
                       sudo docker stop backend || true
-                      sudo docker stop remove || true
+                      sudo docker rm backend || true
 
                       sudo docker build -t backend:latest .
                       sudo docker run -d --name backend -p 4000:4000 backend:latest
