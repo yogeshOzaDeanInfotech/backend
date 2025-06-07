@@ -1,7 +1,10 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import cors from "cors";
 
 const PORT = 4000;
+const name = process.env.NAME;
 const app = express();
 
 // middleware for cors
@@ -16,7 +19,7 @@ app.listen(PORT, () => {
 });
 
 let users = [
-    { name: "Yogesh", email: "yogesh@gmail.com" },
+    { name: name, email: "yogesh@gmail.com" },
     { name: "virat", email: "virat@gmail.com" },
     { name: "dhoni", email: "dhoni@gmail.com" },
     { name: "deepak", email: "deepak@gmail.com" },
