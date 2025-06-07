@@ -1,0 +1,25 @@
+name: deploy node js backend code
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v3
+
+          - name: SSH into EC2 & Deploy
+            uses: appleboy/ssh-action@v0.1
+
+            with:
+               host : 43.204.219.136
+               username : ubuntu
+               port : 22
+               key : {{ secrets.EC2_SSH_KEY }}
+               script : |
+                   df -h
+
